@@ -1,0 +1,84 @@
+/*
+I've only tested this on Google Chrome
+*/
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700,800,900&display=swap");
+body {
+  background: #cccccc;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1, a {
+  z-index: 1;
+  font-family: 'Raleway', sans-serif;
+  font-size: 80px;
+  margin: auto;
+  width: 600px;
+  font-weight: 700;
+  display: inline;
+  background: conic-gradient(#f64c72 10%, #2f2fa2 10%, #2f2fa2 20%, #99738e 20%, #99738e 40%, #f64c72 40%, #f64c72 63%, #2f2fa2 63%, #2f2fa2 80%, #99738e 80%, #99738e 95%, #553d67 95%, #553d67 100%, #2f2fa2 100%);
+  background-size: 20%;
+  background-repeat: repeat-x;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.loader h1:nth-child(1) {
+  animation: loading-animation 3s ease-out forwards, clear-animation 0.4s linear 4.2s forwards;
+}
+
+.loader h1:nth-child(2) {
+  opacity: 0;
+  animation: ellipsis-animation 0.4s step-end 3s forwards, clear-animation 0.4s linear 4.2s forwards;
+}
+
+.loader h1:nth-child(3) {
+  opacity: 0;
+  animation: ellipsis-animation 0.4s step-end 3.4s forwards, clear-animation 0.4s linear 4.2s forwards;
+}
+
+.loader h1:nth-child(4) {
+  opacity: 0;
+  animation: ellipsis-animation 0.4s step-end 3.8s forwards, clear-animation 0.5s linear 4.2s forwards;
+}
+
+.name a:nth-child(1) {
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  animation: loading-animation 3s ease-in 4.6s forwards;
+}
+
+@keyframes clear-animation {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes ellipsis-animation {
+  0% {
+    opacity: 0;
+  }
+  1%, 100% {
+    opacity: 1;
+  }
+}
+@keyframes loading-animation {
+  0% {
+    opacity: 1;
+    background-position: 0 -5em;
+  }
+  50% {
+    opacity: 1;
+    background-position: 0 .25em;
+  }
+  100% {
+    opacity: 1;
+    background-position: 0 0;
+  }
+}

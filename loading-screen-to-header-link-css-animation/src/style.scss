@@ -1,0 +1,118 @@
+/*
+I've only tested this on Google Chrome
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,800,900&display=swap');
+
+$color-1: #242582;
+$color-2: #553d67;
+$color-3: #f64c72;
+$color-4: #99738e;
+$color-5: #2f2fa2;
+$color-6: #cccccc;
+
+$transition-time: 3;
+$delay-time: .4;
+
+body{
+  background: $color-6;
+}
+
+.container{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1, a{
+  z-index: 1;
+  font-family: 'Raleway', sans-serif;
+  font-size: 80px;
+  margin: auto;
+  width:600px; 
+  font-weight: 700;
+  display: inline;
+    background: conic-gradient(
+    $color-3 10%, 
+    $color-5 10%, 
+    $color-5 20%, 
+    $color-4 20%, 
+    $color-4 40%, 
+    $color-3 40%, 
+    $color-3 63%, 
+    $color-5 63%, 
+    $color-5 80%, 
+    $color-4 80%,
+    $color-4 95%, 
+    $color-2 95%,
+    $color-2 100%, 
+    $color-5 100%,
+    
+  );
+  
+  background-size: 20%;
+  background-repeat: repeat-x;
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+}
+
+.loader h1:nth-child(1) {
+  animation: loading-animation ($transition-time * 1s) ease-out forwards, clear-animation ($delay-time * 1s) linear (3*($delay-time * 1s) + ($transition-time * 1s)) forwards;
+}
+
+.loader h1:nth-child(2){
+  opacity: 0;
+  animation: ellipsis-animation ($delay-time * 1s) step-end ($transition-time * 1s) forwards, clear-animation ($delay-time * 1s) linear (3*($delay-time * 1s) + ($transition-time * 1s)) forwards;
+}
+
+.loader h1:nth-child(3){
+  opacity: 0;
+  animation: ellipsis-animation ($delay-time * 1s) step-end (($delay-time * 1s) + ($transition-time * 1s)) forwards, clear-animation ($delay-time * 1s) linear (3*($delay-time * 1s) + ($transition-time * 1s)) forwards;;
+}
+
+.loader h1:nth-child(4){
+  opacity: 0;
+  animation: ellipsis-animation ($delay-time * 1s) step-end (2*($delay-time * 1s) + ($transition-time * 1s)) forwards, clear-animation .5s linear (3*($delay-time * 1s) + ($transition-time * 1s)) forwards;
+}
+
+.name a:nth-child(1){
+  position: relative;
+  top: -100px;
+  opacity: 0;
+  animation: loading-animation ($transition-time * 1s)  ease-in (4*($delay-time * 1s) + ($transition-time * 1s)) forwards;
+}
+
+@keyframes clear-animation{
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ellipsis-animation {
+  0% {
+    opacity: 0;
+  }
+  1%, 100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loading-animation {
+  0% {
+    opacity: 1;
+    background-position: 0 -5em;
+  }
+  50% {
+    opacity: 1;
+    background-position: 0 .25em;
+  }
+  100% {
+    opacity: 1;
+    background-position: 0 0;
+  }
+}
+
